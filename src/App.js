@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import wordsData from "./assets/words.json";
 import tarihData from "./assets/tarih.json";
+import verbData from "./assets/verb.json";
 
 const STORAGE_KEY = "kelime_quiz_state_v2";
 const DATASET_KEY = "kelime_quiz_dataset";
@@ -9,6 +10,7 @@ const DATASET_KEY = "kelime_quiz_dataset";
 const datasets = {
   words: wordsData,
   tarih: tarihData,
+  verb: verbData,
 };
 
 function shuffle(array) {
@@ -185,9 +187,10 @@ export default function App() {
 
       {/* Dataset Seçimi */}
       <div style={{ textAlign: "center", marginBottom: 10 }}>
-        <button onClick={() => changeDataset("words")}>Kelimeler</button>
-        <button onClick={() => changeDataset("tarih")}>Tarih</button>
-        <p>Aktif Dataset: {datasetName}</p>
+       <button onClick={() => changeDataset("words")}>Kelimeler</button>
+       <button onClick={() => changeDataset("tarih")}>Tarih</button>
+       <button onClick={() => changeDataset("verb")}>Fiiller</button> {/* ✅ yeni */}
+       <p>Aktif Dataset: {datasetName}</p>
       </div>
 
       <div style={{ display: "flex", justifyContent: "space-between" }}>
